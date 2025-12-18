@@ -1,13 +1,29 @@
 {
-  "name": "frontend-kit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.17.1"
+	"name": "@lowcode-yunti/frontend-kit",
+	"version": "0.0.1",
+	"description": "",
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "pnpm -r build && rollup -c",
+		"build:core": "pnpm --filter @lowcode-yunti/frontend-core build",
+		"build:dom": "pnpm --filter @lowcode-yunti/dom-utils build",
+		"build:all": "pnpm -r build && rollup -c"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.17.1",
+	"devDependencies": {
+		"@biomejs/biome": "2.3.10",
+		"@rollup/plugin-commonjs": "^29.0.0",
+		"@rollup/plugin-node-resolve": "^16.0.3",
+		"rollup": "^2.79.2",
+		"rollup-plugin-copy": "^3.5.0"
+	},
+	"publishConfig": {
+		"@lowcode-yunti:registry": "https://npm.pkg.github.com"
+	}
 }

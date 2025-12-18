@@ -1,0 +1,20 @@
+{
+	"name": "@lowcode-yunti/frontend-core",
+	"version": "1.0.0",
+	"description": "Core library for frontend projects",
+	"main": "dist/index.js",
+	"module": "dist/index.esm.js",
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@lowcode-yunti/utils": "workspace:*"
+	},
+	"devDependencies": {
+		"rollup": "^2.79.1"
+	}
+}
