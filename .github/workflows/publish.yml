@@ -33,8 +33,15 @@ jobs:
                   node-version: 22
                   registry-url: https://npm.pkg.github.com/
             - name: Check version match
+              # run: |
+              #     TAG_VERSION=${GITHUB_REF#refs/tags/v}
+              #     PKG_VERSION=$(node -p "require('./package.json').version")
+              #     if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+              #         echo "❌ Tag version ($TAG_VERSION) does not match package.json ($PKG_VERSION)"
+              #         exit 1
+              #     fi
               run: |
-                  TAG_VERSION=${GITHUB_REF#refs/tags/v}
+                  TAG_VERSION=${GITHUB_REF_NAME#v}
                   PKG_VERSION=$(node -p "require('./package.json').version")
                   if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
                       echo "❌ Tag version ($TAG_VERSION) does not match package.json ($PKG_VERSION)"
