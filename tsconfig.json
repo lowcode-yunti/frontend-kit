@@ -1,0 +1,31 @@
+{
+	"compilerOptions": {
+		"target": "ES2020",
+		"module": "ESNext",
+		"lib": ["DOM", "ES2020"],
+		"jsx": "react-jsx",
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"composite": false,
+		"declarationDir": "./dist",
+		"baseUrl": ".",
+		"paths": {
+			"@lowcode-yunti/common": ["packages/common/src"],
+			"@lowcode-yunti/demo": ["packages/demo/src"],
+			"@lowcode-yunti/demo-pkg": ["packages/demo/src"],
+			"@lowcode-yunti/knowledge": ["packages/knowledge/src"],
+			"@lowcode-yunti/kit": ["packages/kit/src"]
+		}
+	},
+	"include": ["src/**/*", "packages/*/src/**/*"],
+	"exclude": ["node_modules", "dist"]
+}
