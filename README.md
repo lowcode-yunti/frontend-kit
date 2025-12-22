@@ -4,18 +4,18 @@ A monorepo containing the frontend component library and utilities.
 
 ## Packages
 
-- **@lowcode-yunti/kit**: The main component library with business logic (`packages/kit`).
+-   **@lowcode-yunti/kit**: The main component library with business logic (`packages/kit`).
 
 ## Apps
 
-- **playground**: A local React app for testing and debugging the kit (`apps/playground`).
+-   **playground**: A local React app for testing and debugging the kit (`apps/playground`).
 
 ## Commands
 
-- `pnpm install`: Install dependencies.
-- `pnpm build`: Build all packages.
-- `pnpm studio`: Start the local playground for debugging.
-- `pnpm dev`: Run build in watch mode.
+-   `pnpm install`: Install dependencies.
+-   `pnpm build`: Build all packages.
+-   `pnpm studio`: Start the local playground for debugging.
+-   `pnpm dev`: Run build in watch mode.
 
 ## Development
 
@@ -36,5 +36,8 @@ pnpm unlink @lowcode-yunti/kit
 
 pnpm unlink --global @lowcode-yunti/kit
 
+rm -rf packages/\*\*/node_modules
 rm -rf node_modules
 pnpm install
+
+pnpm add "@lowcode-yunti/common@workspace:\*" --filter @lowcode-yunti/kit

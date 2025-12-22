@@ -20,12 +20,10 @@
 		"baseUrl": ".",
 		"paths": {
 			"@lowcode-yunti/common": ["packages/common/src"],
-			"@lowcode-yunti/demo": ["packages/demo/src"],
-			"@lowcode-yunti/demo-pkg": ["packages/demo/src"],
 			"@lowcode-yunti/knowledge": ["packages/knowledge/src"],
 			"@lowcode-yunti/kit": ["packages/kit/src"]
 		}
 	},
-	"include": ["src/**/*", "packages/*/src/**/*"],
+	"include": ["src/**/*", "packages/*/src/**/*", "@types/**/*"],
 	"exclude": ["node_modules", "dist"]
 }

@@ -3,23 +3,35 @@
 	"version": "0.0.1-alpha.0",
 	"description": "",
 	"private": false,
-	"main": "dist/index.js",
-	"module": "dist/index.esm.js",
-	"types": "dist/index.d.ts",
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"import": "./dist/index.esm.js",
-			"require": "./dist/index.js",
-			"types": "./dist/index.d.ts"
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
 		},
-		"./package.json": "./package.json"
+		"./common": {
+			"types": "./dist/common/index.d.ts",
+			"import": "./dist/common/index.mjs",
+			"require": "./dist/common/index.cjs"
+		},
+		"./knowledge": {
+			"types": "./dist/knowledge/index.d.ts",
+			"import": "./dist/knowledge/index.mjs",
+			"require": "./dist/knowledge/index.cjs"
+		},
+		"./kit": {
+			"types": "./dist/kit/index.d.ts",
+			"import": "./dist/kit/index.mjs",
+			"require": "./dist/kit/index.cjs"
+		}
 	},
-	"files": [
-		"dist"
-	],
 	"scripts": {
-		"build": "pnpm -r --filter='!playground' build && rollup -c",
-		"dev": "pnpm -r dev",
+		"build": "pnpm --filter @lowcode-yunti/common build && pnpm --filter @lowcode-yunti/knowledge build && pnpm --filter @lowcode-yunti/kit build && unbuild",
+		"dev": "pnpm -r --filter='!playground' --filter='!@lowcode-yunti/demo-pkg' dev",
 		"studio": "pnpm --filter playground dev",
 		"clean": "rimraf dist node_modules packages/*/dist packages/*/node_modules apps/*/dist apps/*/node_modules",
 		"lint": "biome lint .",
@@ -29,28 +41,24 @@
 		"check": "biome check .",
 		"check:fix": "biome check . --apply"
 	},
+	"dependencies": {
+		"@lowcode-yunti/common": "workspace:*",
+		"@lowcode-yunti/kit": "workspace:*",
+		"@lowcode-yunti/knowledge": "workspace:*",
+		"@types/react": "^19.2.7",
+		"@types/react-dom": "^19.2.3",
+		"react": "^19.2.3",
+		"react-dom": "^19.2.3"
+	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"packageManager": "pnpm@10.17.1",
-	"dependencies": {
-		"@lowcode-yunti/common": "workspace:*",
-		"@lowcode-yunti/knowledge": "workspace:*",
-		"@lowcode-yunti/kit": "workspace:*"
-	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.10",
-		"@rollup/plugin-commonjs": "^25.0.0",
-		"@rollup/plugin-node-resolve": "^15.0.0",
-		"@rollup/plugin-typescript": "^11.0.0",
 		"@types/node": "^20.0.0",
 		"rimraf": "^5.0.0",
-		"rollup": "^4.0.0",
-		"rollup-plugin-dts": "^6.0.0",
-		"tslib": "^2.6.0",
-		"typescript": "^5.0.0"
-	},
-	"publishConfig": {
-		"@lowcode-yunti:registry": "https://npm.pkg.github.com"
+		"typescript": "^5.9.3",
+		"unbuild": "^3.6.1"
 	}
 }
