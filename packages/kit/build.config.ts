@@ -1,47 +1,43 @@
-import { defineBuildConfig } from "unbuild";
-import {
-    hooks,
-    commonExternals,
-    getPackageBaseOutDir,
-} from "../../build.preset";
+import { defineBuildConfig } from "unbuild"
+import { hooks, commonExternals, getPackageBaseOutDir } from "../../build.preset"
 
-const outDir = "../../dist/kit";
+// const outDir = "../../dist/kit";
 export default defineBuildConfig({
-    entries: [
-        // ① 统一出口（JS + d.ts）
-        "src/index",
+	entries: [
+		// ① 统一出口（JS + d.ts）
+		"src/index",
 
-        {
-            input: "./src/components/",
-            outDir: getPackageBaseOutDir("kit", "components"),
-            declaration: true,
-            // emitCJS: false,
-            format: "esm",
-        },
-    ],
+		{
+			input: "./src/components/",
+			outDir: getPackageBaseOutDir("kit", "components"),
+			declaration: true,
+			// emitCJS: false,
+			format: "esm",
+		},
+	],
 
-    declaration: true,
-    clean: true,
+	declaration: true,
+	clean: true,
 
-    rollup: {
-        emitCJS: true,
+	rollup: {
+		emitCJS: true,
 
-        // 支持 PostCSS 处理 CSS
-        esbuild: {
-            target: "es2020",
-        },
-        output: {
-            preserveModules: true,
-            // preserveModulesRoot: "src",
-        },
-    },
+		// 支持 PostCSS 处理 CSS
+		esbuild: {
+			target: "es2020",
+		},
+		output: {
+			preserveModules: true,
+			// preserveModulesRoot: "src",
+		},
+	},
 
-    hooks,
+	hooks,
 
-    outDir: getPackageBaseOutDir("kit"),
+	outDir: getPackageBaseOutDir("kit"),
 
-    // kit 依赖 common 和 knowledge
-    externals: [...commonExternals],
+	// kit 依赖 common 和 knowledge
+	externals: [...commonExternals],
 
-    failOnWarn: false,
-});
+	failOnWarn: false,
+})

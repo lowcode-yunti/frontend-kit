@@ -1,32 +1,3 @@
-# Frontend Kit
-
-A monorepo containing the frontend component library and utilities.
-
-## Packages
-
--   **@lowcode-yunti/kit**: The main component library with business logic (`packages/kit`).
-
-## Apps
-
--   **playground**: A local React app for testing and debugging the kit (`apps/playground`).
-
-## Commands
-
--   `pnpm install`: Install dependencies.
--   `pnpm build`: Build all packages.
--   `pnpm studio`: Start the local playground for debugging.
--   `pnpm dev`: Run build in watch mode.
-
-## Development
-
-1. Install dependencies: `pnpm install`.
-2. Start playground: `pnpm studio`.
-3. Edit files in `packages/kit`, changes usually reflect in playground (might need rebuild depending on link setup, but `vite` handles source linking well if configured, otherwise run `pnpm -r dev` to watch).
-
-Note: The `studio` command runs the playground `dev` server.
-Top-level `pnpm dev` runs `rollup -w` in packages, enabling live rebuilds.
-For best experience, run `pnpm dev` in one terminal (to watch lib) and `pnpm studio` in another (to run app).
-
 cd packages/kit
 pnpm link --global
 
@@ -41,3 +12,15 @@ rm -rf node_modules
 pnpm install
 
 pnpm add "@lowcode-yunti/common@workspace:\*" --filter @lowcode-yunti/kit
+
+其他项目使用方式:
+
+1. 创建 .npmrc 文件
+2. 增加 ```shell
+ @lowcode-yunti:registry=<https://npm.pkg.github.com>
+ //npm.pkg.github.com/:_authToken=ghp_xxx
+
+ ```
+
+3. 其他项目安装 pnpm add @lowcode-yunti/frontend-kit
+4. import { xxx } from  "@lowcode-yunti/frontend-kit"

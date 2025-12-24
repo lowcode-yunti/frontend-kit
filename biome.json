@@ -48,7 +48,10 @@
 			"enabled": true
 		},
 		"linter": {
-			"enabled": true
+			"enabled": false
+		},
+		"parser": {
+			"tailwindDirectives": true
 		}
 	}
 }

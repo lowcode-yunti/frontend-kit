@@ -1,3 +1,5 @@
+import "./styles/reset-tailwind.css"
+
 export function formatString(template: string, ...args: any[]): string {
 	return template.replace(/{(\d+)}/g, (match, index) => {
 		return typeof args[Number(index)] !== "undefined"
@@ -68,3 +70,17 @@ export function createElement(
 
 	return element
 }
+
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function mergeClasses(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs))
+}
+
+export {
+	createAxiosInstance,
+	getLocalStorageToken,
+	setLocalStorageToken,
+	removeLocalStorageToken,
+} from "./axios"
