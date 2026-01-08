@@ -78,9 +78,23 @@ export function mergeClasses(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 
+export const cn = mergeClasses
+
 export {
 	createAxiosInstance,
 	getLocalStorageToken,
 	setLocalStorageToken,
 	removeLocalStorageToken,
+	type AxiosInstance,
+	defaultAxiosConfig,
+	type AxiosRequestConfig,
+	type AxiosResponse,
+	type InternalAxiosRequestConfig,
+	type AxiosError,
+	// ---
+	createSSEConnection,
+	createSSEConnectionWithEventSource,
+	type SSEMessageEvent,
+	type SSEConnectionOptions,
+	type SSEConnection,
 } from "./axios"
